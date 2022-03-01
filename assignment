@@ -1,0 +1,69 @@
+1. function sumSalaries(salaryObject) {
+       var sum = 0;
+       for (const [key,value] of Object.entries(salaryObject)) {
+           sum += value;
+       }
+       return sum;
+   }
+   
+2. function multiplyNumeric(menuObject) {
+       for (let [key,value] of Object.entries(menuObject)) {
+           if(typeof(value) == 'number') {
+               value *= 2;
+               console.log(value);
+           }
+       }
+   }
+   
+   //Even though an object is passed in, which should be passed by reference, the contents of the original menu is not changed for some reason.
+   //Not working as intended.
+   
+3. function checkEmailId(str) {
+       var containsAt = false;
+       var containsDot = false;
+
+       for (let i = 0; i < str.length; i++) {
+           if (str.charAt(i) == '@' && containsAt == false && containsDot == false) {
+               containsAt = true;
+           }
+
+           if (str.charAt(i) == '.' && containsDot == false && containsAt == true && str.charAt(i - 1) != '@') {
+               containsDot = true;
+           }
+
+           if (containsAt == true && containsDot == true)
+               return true;
+           else
+               return false;
+       }
+   }
+   
+   //Not working as intended.
+   
+4. function truncate(str, maxlength) {
+       if (str.length > maxlength) {
+           var returnString = "";
+
+           for (let i = 0; i < maxlength - 1; i++) {
+               returnString += str.charAt(i);
+           }
+
+           returnString += "..."
+
+           return returnString;
+       }
+       else
+           return str;
+   }
+   
+5. function funWithArrays(arr) {
+      arr.push('Robert');
+
+       arr.splice((arr.length / 2), 1, 'Calvin');
+
+       arr.shift();
+
+       arr.splice(0, 0, 'Rose', 'Regal');
+
+       return arr;
+   }
